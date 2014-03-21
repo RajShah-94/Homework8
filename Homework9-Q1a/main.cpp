@@ -15,7 +15,7 @@ int main() {
 	int z = *p;
 
 	double array[3] = { 0,0,0};
-	double * f = array; // needs to be pointer to array
+	double * f = array; // array is already a pointer
 	f[0] = x;
 	f[1] = y;
 	f[2] = z;
