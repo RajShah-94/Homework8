@@ -11,11 +11,11 @@ int main() {
 	int x=10;
 	int & y = x; // y not initialised
 
-	int * p = & x; //
+	int * p = & x; // needs to be pointer to the memory location
 	int z = *p;
 
 	double array[3] = { 0,0,0};
-	double * f = array; //
+	double * f = array; // needs to be pointer to array
 	f[0] = x;
 	f[1] = y;
 	f[2] = z;
