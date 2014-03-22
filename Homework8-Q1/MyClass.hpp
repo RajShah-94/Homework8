@@ -8,8 +8,12 @@
 #ifndef MYCLASS_HPP_
 #define MYCLASS_HPP_
 
+#include <vector> // needed so that vectors can be used
+
 class MyClass {
-	MyClass(int n) : size(size) { data = new double[size];}
+
+public: // the public declaration was missing, it is needed to prevent the constructor and destructor from being set as private
+	MyClass(int n) : size(n) { data = new double[size];} // constructor needs to take a value "n" and apply it to the private data member "size" , not make size == size
 	~MyClass() {delete[] data;}
 	MyClass(const MyClass & c) {
 		size = c.size;
@@ -20,7 +24,7 @@ class MyClass {
 	}
 
 	void Resize(int n) {
-		delete data;
+		delete[] data; // we use delete[] to clear out an array of objects , where as we use delete to clear out a single object
 		size = n;
 		data = new double[n];
 	}
@@ -28,7 +32,7 @@ class MyClass {
 	void Fill(const std::vector<double> & vec) {
 		int n = vec.size();
 		if(size<n) {
-			Reallocate(n);
+			Resize(n); // no function called Reallocate , Resize was needed
 		}
 		for(int i =0;i<n;++i) {
 			data[i] = vec[i];
