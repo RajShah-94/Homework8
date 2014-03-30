@@ -8,7 +8,7 @@
 #include <string>
 
 int main() {
-	int x;
+	int x; //initiates integer x
 
 	int & y = x; // brings out value of x
 	int * p = &x; // brings out value stored in the memory location
